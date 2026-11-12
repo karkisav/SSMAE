@@ -4,14 +4,16 @@
 Grouped bars, two panels (frozen / finetuned) so each keeps one y-axis.
 Palette: validated categorical slots 1 (#2a78d6) and 2 (#eb6834).
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import json
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-RES = '/home/iit-dharwad/sav/ablations/results_fusion.json'
-OUT = '/home/iit-dharwad/sav/ablations/fig_fusion.png'
+RES = str(ROOT / 'ablations' / 'results' / 'results_fusion.json')
+OUT = str(ROOT / 'ablations' / 'figures' / 'fig_fusion.png')
 
 SURFACE, TEXT_1, TEXT_2, GRID = '#fcfcfb', '#0b0b0b', '#52514e', '#e1e0d9'
 C_PRE, C_RND = '#2a78d6', '#eb6834'

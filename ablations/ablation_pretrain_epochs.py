@@ -20,6 +20,8 @@ cannot drift from the architecture that produced the published numbers.
 
 Writes ablations/results_pretrain_epochs.json ; plotting is separate.
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import ast, io, json, os, sys, time
 import numpy as np
 import torch
@@ -27,9 +29,9 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import f1_score, roc_auc_score
 
-NB = '/home/iit-dharwad/sav/rsproject-iiitdwd (5).ipynb'
-OUT = '/home/iit-dharwad/sav/ablations/results_pretrain_epochs.json'
-CKPT_DIR = '/home/iit-dharwad/sav/checkpoints/pretrain'
+NB = str(ROOT / 'notebooks' / 'ssmae_pipeline.ipynb')
+OUT = str(ROOT / 'ablations' / 'results' / 'results_pretrain_epochs.json')
+CKPT_DIR = str(ROOT / 'checkpoints' / 'pretrain')
 
 EPOCHS = 20           # matches cells 28/29
 HEAD_LR = 3e-4

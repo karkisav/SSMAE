@@ -19,6 +19,8 @@ Everything else is held at the ablation-2 settings so numbers are comparable.
 
 Writes ablations/results_fusion.json ; plotting is separate.
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import ast, io, json, os, time
 import numpy as np
 import torch
@@ -26,9 +28,9 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import f1_score, roc_auc_score
 
-NB = '/home/iit-dharwad/sav/rsproject-iiitdwd (5).ipynb'
-OUT = '/home/iit-dharwad/sav/ablations/results_fusion.json'
-PRETRAINED = '/home/iit-dharwad/sav/checkpoints/pretrain/ssmae_pretrain_epoch100.pth'
+NB = str(ROOT / 'notebooks' / 'ssmae_pipeline.ipynb')
+OUT = str(ROOT / 'ablations' / 'results' / 'results_fusion.json')
+PRETRAINED = str(ROOT / 'checkpoints' / 'pretrain' / 'ssmae_pretrain_epoch100.pth')
 
 EPOCHS, HEAD_LR, ENC_LR, THRESHOLD, SEED = 20, 3e-4, 1e-5, 0.5, 42
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')

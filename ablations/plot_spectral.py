@@ -8,13 +8,15 @@ Palette: validated categorical slots 1/2/3. Slot 3 (#1baf7a) carries a contrast
 WARN against the light surface, so that series is direct-labelled at every point
 and a table view is printed -- the required relief.
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import json
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-RES = '/home/iit-dharwad/sav/ablations/results_spectral.json'
-OUT = '/home/iit-dharwad/sav/ablations/fig_spectral.png'
+RES = str(ROOT / 'ablations' / 'results' / 'results_spectral.json')
+OUT = str(ROOT / 'ablations' / 'figures' / 'fig_spectral.png')
 
 SURFACE, TEXT_1, TEXT_2, GRID = '#fcfcfb', '#0b0b0b', '#52514e', '#e1e0d9'
 S_FROZEN, S_FINE, S_CLS = '#2a78d6', '#eb6834', '#1baf7a'

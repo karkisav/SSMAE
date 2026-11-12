@@ -4,6 +4,8 @@
 All ablation numbers are read from the results JSON files rather than typed in,
 so the document cannot drift from the experiments.
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import json, os
 from PIL import Image as PILImage
 from reportlab.lib import colors
@@ -14,16 +16,16 @@ from reportlab.lib.enums import TA_LEFT
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer, Image,
                                 Table, TableStyle, PageBreak, KeepTogether)
 
-BASE = '/home/iit-dharwad/sav/ablations'
-OUT = '/home/iit-dharwad/sav/SSMAE_ablation_report.pdf'
+BASE = str(ROOT / 'ablations')
+OUT = str(ROOT / 'reports' / 'SSMAE_ablation_report.pdf')
 
 INK, INK2, RULE = colors.HexColor('#0b0b0b'), colors.HexColor('#52514e'), colors.HexColor('#d8d7d0')
 BLUE, ORANGE, GREEN, RED = (colors.HexColor('#2a78d6'), colors.HexColor('#eb6834'),
                             colors.HexColor('#1baf7a'), colors.HexColor('#c0392b'))
 
-spec = json.load(open(f'{BASE}/results_spectral.json'))
-ep = json.load(open(f'{BASE}/results_pretrain_epochs.json'))
-fus = json.load(open(f'{BASE}/results_fusion.json'))
+spec = json.load(open(f'{BASE}/results/results_spectral.json'))
+ep = json.load(open(f'{BASE}/results/results_pretrain_epochs.json'))
+fus = json.load(open(f'{BASE}/results/results_fusion.json'))
 
 # ------------------------------------------------------------------ styles
 ss = getSampleStyleSheet()
@@ -49,7 +51,7 @@ def B(t): story.append(Paragraph(t, Bullet, bulletText='-'))
 def gap(h=6): story.append(Spacer(1, h))
 
 def fig(name, caption, width=165*mm):
-    path = f'{BASE}/{name}'
+    path = f'{BASE}/figures/{name}'
     w, h = PILImage.open(path).size
     story.append(Image(path, width=width, height=width * h / w))
     story.append(Paragraph(caption, Cap))

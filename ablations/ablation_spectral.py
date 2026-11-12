@@ -21,6 +21,8 @@ Two downstream readouts, because ablation 2 showed they disagree:
 Writes ablations/results_spectral.json. Pretrained weights go to
 ablations/ckpt/ so the main checkpoints/ tree is untouched.
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import ast, io, json, os, time
 import numpy as np
 import torch
@@ -28,10 +30,10 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.metrics import f1_score, roc_auc_score, accuracy_score
 
-NB = '/home/iit-dharwad/sav/rsproject-iiitdwd (5).ipynb'
-OUT = '/home/iit-dharwad/sav/ablations/results_spectral.json'
-CKPT_OUT = '/home/iit-dharwad/sav/ablations/ckpt'
-PUBLISHED = '/home/iit-dharwad/sav/checkpoints/pretrain/ssmae_pretrain_epoch100.pth'
+NB = str(ROOT / 'notebooks' / 'ssmae_pipeline.ipynb')
+OUT = str(ROOT / 'ablations' / 'results' / 'results_spectral.json')
+CKPT_OUT = str(ROOT / 'ablations' / 'ckpt')
+PUBLISHED = str(ROOT / 'checkpoints' / 'pretrain' / 'ssmae_pretrain_epoch100.pth')
 
 PRETRAIN_EPOCHS = 100
 PRETRAIN_LR = 1.5e-4

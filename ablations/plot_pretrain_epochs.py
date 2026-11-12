@@ -5,13 +5,15 @@ Two series (frozen / finetuned probe) against a random-init reference line.
 Palette: validated categorical slots 1 and 2 (blue #2a78d6, orange #eb6834) --
 CVD separation dE 24.7 protan, normal-vision dE 33.6, all six checks PASS.
 """
+from pathlib import Path
+ROOT = Path(__file__).resolve().parents[1]   # repo root
 import json
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-RES = '/home/iit-dharwad/sav/ablations/results_pretrain_epochs.json'
-OUT = '/home/iit-dharwad/sav/ablations/fig_pretrain_epochs.png'
+RES = str(ROOT / 'ablations' / 'results' / 'results_pretrain_epochs.json')
+OUT = str(ROOT / 'ablations' / 'figures' / 'fig_pretrain_epochs.png')
 
 # --- design tokens (light surface) ---
 SURFACE   = '#fcfcfb'
