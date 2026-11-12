@@ -459,10 +459,23 @@ pip install torch torchvision einops scikit-learn rasterio pandas matplotlib tqd
 1. Download the three datasets from Kaggle (see [Data](#data)) and extract them into the repo root as
    `eurosat-dataset/`, `levir-cd-change-detection/` and `oscd-dataset/`. The notebook also finds them under
    `/kaggle/input/...` when run on Kaggle.
-2. Run `notebooks/ssmae_pipeline.ipynb` from top to bottom. It switches its working directory to the repo root,
-   writes weights to `checkpoints/`, figures to `figures/` and tables to `results/`. Set `FORCE_RETRAIN = False`
-   in the config cell to reuse existing checkpoints.
-3. Ablations (these need `checkpoints/pretrain/ssmae_pretrain_epoch*.pth` from step 2):
+2. *(Optional, skips several hours of training.)* Download `ssmae_checkpoints_minimal.zip` (~1 GB) from the
+   [Releases page](https://github.com/karkisav/SSMAE/releases) and unzip it in the repo root:
+
+   ```bash
+   unzip ssmae_checkpoints_minimal.zip     # creates ./checkpoints/...
+   ```
+
+   It contains every checkpoint the notebook needs to run end to end without training: the pretrained encoder,
+   both classifiers, the adaptive-masking model, all six change detectors and baselines, and the cached sweep
+   results. `CHECKPOINTS.txt` inside the zip lists each file.
+3. Run `notebooks/ssmae_pipeline.ipynb` from top to bottom. It switches its working directory to the repo root,
+   writes weights to `checkpoints/`, figures to `figures/` and tables to `results/`. With the default
+   `FORCE_RETRAIN = False`, each stage loads its checkpoint if one is present and trains it otherwise. Set it to
+   `True` to retrain everything.
+4. Ablations. Ablation B uses the intermediate pretraining checkpoints (epochs 10–90), and Ablation A uses its own
+   pretrained arms in `ablations/ckpt/`. Neither set is in the minimal zip. Without them, Ablation B evaluates
+   only the checkpoints that exist, and Ablation A retrains its missing arms (~2 h).
 
    ```bash
    python ablations/ablation_spectral.py         # A  (~2 h)
