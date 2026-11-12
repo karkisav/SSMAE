@@ -1,0 +1,9 @@
+# F811 "redefinition of unused" fires on every repeated import in a notebook.
+# Cells here are deliberately re-runnable in isolation (this notebook is worked
+# on out of order), so each cell re-imports what it uses. Removing those makes
+# the linter quiet but breaks any cell run after a kernel restart.
+[lint]
+select = ["F"]
+
+[lint.per-file-ignores]
+"*.ipynb" = ["F811"]

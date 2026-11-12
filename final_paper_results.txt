@@ -1,0 +1,16 @@
+SS-MAE FOREST EXPLOITATION DETECTION
+==================================================
+
+TABLE 1: METHOD COMPARISON
+  Simple CNN (no pretraining)    F1=0.8677  pairs=2000  epochs=20
+  Random Encoder + Head          F1=0.8859  pairs=2000  epochs=20
+  SS-MAE frozen (ours)           F1=0.7074  pairs=2000  epochs=20
+  SS-MAE finetuned (ours)        F1=0.8781  pairs=2000  epochs=20
+  SS-MAE + more data (ours)      F1=0.9416  pairs=5000  epochs=30
+
+TABLE 2: PER-CAUSE DETECTION
+  Forest→AnnualCrop   (farming)       93.0%
+  Forest→Residential  (urban)         95.0%
+  Forest→Industrial   (industry)      99.0%
+  HerbVeg→AnnualCrop  (grassland)     86.0%
+  Pasture→Industrial  (pasture)       99.0%

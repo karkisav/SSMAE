@@ -1,0 +1,53 @@
+✅ Config ready!
+Images: 64x64, 13 bands
+Patches: 64
+Checkpoint policy: FORCE_RETRAIN=True
+Checkpoints -> checkpoints/
+device=cuda  bands=13  embed=512
+Loaded 18900 samples
+Classes: {0: 2100, 2: 2100, 9: 2100, 1: 2100, 7: 2100, 6: 1750, 4: 1750, 3: 1750, 8: 1750, 5: 1400}
+Loaded 5400 samples
+Classes: {1: 600, 0: 600, 2: 600, 9: 600, 7: 600, 3: 500, 6: 500, 8: 500, 4: 500, 5: 400}
+  2000 pairs | 1000 exploitation (50%) | 1000 no-change (50%)
+  600 pairs | 300 exploitation (50%) | 300 no-change (50%)
+data ready in 78s  (2000 train / 600 val pairs)
+
+11 checkpoints x 2 regimes = 22 runs
+
+--- regime: frozen ---
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 0 (random init) best F1=0.8054  AUC=0.8673
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 10   best F1=0.7054  AUC=0.6531
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 20   best F1=0.6667  AUC=0.5214
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 30   best F1=0.6689  AUC=0.5221
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 40   best F1=0.6757  AUC=0.5216
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 50   best F1=0.5763  AUC=0.5230
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 60   best F1=0.6657  AUC=0.6783
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 70   best F1=0.6985  AUC=0.7316
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 80   best F1=0.7023  AUC=0.7426
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 90   best F1=0.7153  AUC=0.7375
+Encoder frozen — only change head will train.
+  frozen @ pretrain epoch 100  best F1=0.7198  AUC=0.7416
+--- regime: finetuned ---
+  finetuned @ pretrain epoch 0 (random init) best F1=0.8923  AUC=0.9554
+  finetuned @ pretrain epoch 10 best F1=0.8668  AUC=0.9315
+  finetuned @ pretrain epoch 20 best F1=0.8500  AUC=0.9127
+  finetuned @ pretrain epoch 30 best F1=0.8486  AUC=0.9146
+  finetuned @ pretrain epoch 40 best F1=0.8486  AUC=0.9139
+  finetuned @ pretrain epoch 50 best F1=0.8634  AUC=0.9117
+  finetuned @ pretrain epoch 60 best F1=0.8075  AUC=0.8896
+  finetuned @ pretrain epoch 70 best F1=0.8830  AUC=0.9406
+  finetuned @ pretrain epoch 80 best F1=0.8896  AUC=0.9470
+  finetuned @ pretrain epoch 90 best F1=0.8744  AUC=0.9372
+  finetuned @ pretrain epoch 100 best F1=0.8829  AUC=0.9364
+
+done in 20.8 min -> /home/iit-dharwad/sav/ablations/results_pretrain_epochs.json

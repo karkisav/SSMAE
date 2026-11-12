@@ -1,0 +1,46 @@
+{
+ "meta": {
+  "pretrain_epochs": 100,
+  "spatial": 0.75,
+  "seed": 42,
+  "fusion": "diff",
+  "ratios": [
+   0.0,
+   0.15,
+   0.3,
+   0.5
+  ]
+ },
+ "0.0": {
+  "ckpt": "/home/iit-dharwad/sav/ablations/ckpt/ssmae_spectral000.pth",
+  "pretrain_final_loss": 0.026208563795866998,
+  "masked_fraction": 0.75,
+  "cls_linear_probe": 0.7537037037037037,
+  "cd_frozen": 0.9070146818923328,
+  "cd_finetuned": 0.9240710823909531
+ },
+ "0.15": {
+  "ckpt": "/home/iit-dharwad/sav/ablations/ckpt/ssmae_spectral015.pth",
+  "pretrain_final_loss": 0.057365566945156536,
+  "masked_fraction": 0.7875,
+  "cls_linear_probe": 0.6627777777777778,
+  "cd_frozen": 0.8710217755443886,
+  "cd_finetuned": 0.9207920792079208
+ },
+ "0.3": {
+  "ckpt": "/home/iit-dharwad/sav/checkpoints/pretrain/ssmae_pretrain_epoch100.pth",
+  "pretrain_final_loss": null,
+  "masked_fraction": 0.825,
+  "cls_linear_probe": 0.5246296296296297,
+  "cd_frozen": 0.826580226904376,
+  "cd_finetuned": 0.8859934853420195
+ },
+ "0.5": {
+  "ckpt": "/home/iit-dharwad/sav/ablations/ckpt/ssmae_spectral050.pth",
+  "pretrain_final_loss": 0.07127403669260643,
+  "masked_fraction": 0.875,
+  "cls_linear_probe": 0.21851851851851853,
+  "cd_frozen": 0.7071651090342679,
+  "cd_finetuned": 0.8877721943048577
+ }
+}

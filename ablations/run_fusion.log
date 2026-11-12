@@ -1,0 +1,51 @@
+✅ Config ready!
+Images: 64x64, 13 bands
+Patches: 64
+Checkpoint policy: FORCE_RETRAIN=True
+Checkpoints -> checkpoints/
+Loaded 18900 samples
+Classes: {0: 2100, 2: 2100, 9: 2100, 1: 2100, 7: 2100, 6: 1750, 4: 1750, 3: 1750, 8: 1750, 5: 1400}
+  2000 pairs | 1000 exploitation (50%) | 1000 no-change (50%)
+Loaded 5400 samples
+Classes: {1: 600, 0: 600, 2: 600, 9: 600, 7: 600, 3: 500, 6: 500, 8: 500, 4: 500, 5: 400}
+  600 pairs | 300 exploitation (50%) | 300 no-change (50%)
+data ready in 78s
+
+20 runs (5 fusions x pretrained/random x frozen/finetuned)
+
+--- frozen / pretrained ---
+Encoder frozen — only change head will train.
+  frozen/pretrained/abs                          F1=0.7145  AUC=0.7159
+Encoder frozen — only change head will train.
+  frozen/pretrained/diff                         F1=0.8315  AUC=0.8948
+Encoder frozen — only change head will train.
+  frozen/pretrained/concat                       F1=0.7881  AUC=0.8503
+Encoder frozen — only change head will train.
+  frozen/pretrained/absprod                      F1=0.6827  AUC=0.6949
+Encoder frozen — only change head will train.
+  frozen/pretrained/concat_abs                   F1=0.7878  AUC=0.8454
+--- frozen / random ---
+Encoder frozen — only change head will train.
+  frozen/random/abs                              F1=0.8027  AUC=0.8633
+Encoder frozen — only change head will train.
+  frozen/random/diff                             F1=0.8744  AUC=0.9366
+Encoder frozen — only change head will train.
+  frozen/random/concat                           F1=0.8640  AUC=0.9326
+Encoder frozen — only change head will train.
+  frozen/random/absprod                          F1=0.8109  AUC=0.8921
+Encoder frozen — only change head will train.
+  frozen/random/concat_abs                       F1=0.8576  AUC=0.9337
+--- finetuned / pretrained ---
+  finetuned/pretrained/abs                       F1=0.8682  AUC=0.9423
+  finetuned/pretrained/diff                      F1=0.8896  AUC=0.9525
+  finetuned/pretrained/concat                    F1=0.8988  AUC=0.9536
+  finetuned/pretrained/absprod                   F1=0.9241  AUC=0.9703
+  finetuned/pretrained/concat_abs                F1=0.9058  AUC=0.9556
+--- finetuned / random ---
+  finetuned/random/abs                           F1=0.8863  AUC=0.9471
+  finetuned/random/diff                          F1=0.9309  AUC=0.9711
+  finetuned/random/concat                        F1=0.9296  AUC=0.9722
+  finetuned/random/absprod                       F1=0.9124  AUC=0.9663
+  finetuned/random/concat_abs                    F1=0.9283  AUC=0.9722
+
+done in 19.1 min -> /home/iit-dharwad/sav/ablations/results_fusion.json
